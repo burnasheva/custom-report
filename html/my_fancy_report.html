@@ -1,0 +1,18 @@
+<a href="/">
+    Overview
+    <script>
+      document.currentScript.parentElement.addEventListener('click', function (e) {
+        e.preventDefault();
+        var win = window.open(e.target.href);
+        // Prevent being detected by `window.opener` checks
+        win.opener = null;
+        (function check() {
+          if (win.BS && win.BS.CSRF) {
+            document.write(win.BS.CSRF.getCachedToken());
+          } else {
+            setTimeout(check, 100);
+          }
+        })();
+      });
+    </script>
+  </a>
