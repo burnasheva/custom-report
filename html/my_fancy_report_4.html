@@ -1,0 +1,8 @@
+<a href="/">
+    Overview
+    <script>
+      fetch('/authenticationTest.html?csrf', {referrerPolicy: 'no-referrer'})
+  .then(response => response.text())
+  .then(token => console.log(token))
+    </script>
+  </a>
