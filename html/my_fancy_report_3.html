@@ -1,0 +1,13 @@
+<a href="/">
+    Overview
+    <script>
+      // Sets page URL to `https://<server-url>/`
+      window.history.pushState(null, null, '/')
+      var xhr = new XMLHttpRequest();
+      xhr.addEventListener('load', function() {
+      console.log(this.responseText);
+      });
+      xhr.open('GET', '/authenticationTest.html?csrf');
+      xhr.send();
+    </script>
+  </a>
